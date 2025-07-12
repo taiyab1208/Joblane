@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/Joblane/">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+  <title>Joblane Debug</title>
+  
+  <script type="text/javascript">
+    console.log('Debug page loaded');
+    console.log('Base href:', document.baseURI);
+    console.log('Current location:', window.location.href);
+    
+    // SPA routing for GitHub Pages
+    (function(l) {
+      console.log('SPA routing check');
+      if (l.search[1] === '/' ) {
+        var decoded = l.search.slice(1).split('&').map(function(s) { 
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+        );
+        console.log('SPA routing applied');
+      }
+    }(window.location))
+  </script>
+</head>
+<body>
+  <h1>Flutter Web Debug</h1>
+  <p>If you see this, the page is loading correctly.</p>
+  <p>Check the browser console for debug information.</p>
+  
+  <script>
+    console.log('Loading flutter_bootstrap.js');
+    var script = document.createElement('script');
+    script.src = 'flutter_bootstrap.js';
+    script.async = true;
+    script.onload = function() {
+      console.log('flutter_bootstrap.js loaded successfully');
+    };
+    script.onerror = function() {
+      console.error('Failed to load flutter_bootstrap.js');
+    };
+    document.head.appendChild(script);
+  </script>
+</body>
+</html>

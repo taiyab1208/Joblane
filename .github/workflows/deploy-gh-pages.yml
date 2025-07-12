@@ -20,8 +20,11 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build web
-        run: flutter build web --release
+      - name: Build web with base href
+        run: flutter build web --base-href "/Joblane/"
+
+      - name: Add 404.html for SPA routing
+        run: cp web/404.html build/web/404.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

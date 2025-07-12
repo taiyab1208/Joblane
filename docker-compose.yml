@@ -1,7 +1,0 @@
-version: '3.8'
-services:
-  joblane-web:
-    build: .
-    ports:
-      - "8080:80"
-    container_name: joblane-flutter-web
